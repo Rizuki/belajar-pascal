@@ -1,16 +1,23 @@
 program type_data;
 
+{mendeklarasikan variable}
 var
+        {nama_variable : type_data}
         nama : string;
         npm  : string;
         umur : integer;
 
 begin
+        {variable assignment}
         nama := 'Muhammad Rizky';
         npm  := '202243501007';
         umur := 29;
+
+        {make an output from data variable}
         writeln(nama);
         writeln(npm);
         writeln(umur);
+
+        {make idle display when showing output}
         readln;
 end.
