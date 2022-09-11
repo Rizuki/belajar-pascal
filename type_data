@@ -1,0 +1,16 @@
+program type_data;
+
+var
+        nama : string;
+        npm  : string;
+        umur : integer;
+
+begin
+        nama := 'Muhammad Rizky';
+        npm  := '202243501007';
+        umur := 29;
+        writeln(nama);
+        writeln(npm);
+        writeln(umur);
+        readln;
+end.
