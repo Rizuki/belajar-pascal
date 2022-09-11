@@ -1,0 +1,7 @@
+program perkenalan;
+
+begin
+        writeln('Muhammad Rizky');
+        writeln('2022435010007');
+        readln;
+end.
