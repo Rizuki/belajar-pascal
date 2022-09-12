@@ -1,0 +1,49 @@
+program if_nested_practice;
+uses crt;
+
+var
+        golongan : char;
+        pend : string;
+        gaji_akhir : longint;
+        keterangan : string;
+
+begin
+        clrscr;
+
+        keterangan := 'Gaji Anda adalah Rp.';
+        write('Silahkan masukan golongan (A/B)      : '); readln(golongan);
+        write('Silahkan masukan pendidikan (SMA/S1) : '); readln(pend);
+        if (golongan = 'a') then
+                begin
+                if (pend = 'sma') then
+                        begin
+                        gaji_akhir := 3000000+2000000;
+                        writeln(keterangan, gaji_akhir);
+                        end
+                else
+                        begin
+                        gaji_akhir := 4000000+3000000;
+                        writeln(keterangan, gaji_akhir)
+                        end;
+                end
+
+        else if (golongan = 'b') then
+                begin
+                if (pend = 'sma') then
+                        begin
+                        gaji_akhir := 4000000+3000000;
+                        writeln(keterangan, gaji_akhir)
+                        end
+
+                else
+                        begin
+                        gaji_akhir := 6000000+5000000;
+                        writeln(keterangan, gaji_akhir)
+                        end
+                end
+                
+        else
+                writeln('Silahkan masukan data yang benar');
+
+        readln;
+end
