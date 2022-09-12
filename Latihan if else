@@ -1,0 +1,20 @@
+// penentuan tahun kabisat
+
+program if_else_kabisat;
+uses crt;
+
+var
+        angka : integer;
+
+begin
+        clrscr;
+        write('Silahkan masukan contoh Tahun : '); readln(angka);
+        if (angka mod 4 = 0 ) then
+                writeln('Tahun yang anda masukan merupakan tahun Kabisat')
+        else
+                writeln('Tahun yang anda masukan bukan merupakan tahun Kabisat');
+
+        readln;
+
+end.
+===================================================================================
