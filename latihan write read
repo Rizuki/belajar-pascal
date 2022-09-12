@@ -26,7 +26,7 @@ begin
 end.
 
 
-// test membuat perhitungan luas balok.
+=================== test membuat perhitungan luas balok. ===================
 program perhitungan_luas_balok;
 uses crt;
 
@@ -51,6 +51,36 @@ begin
         writeln('Luas : ', hasil:2:2);
         writeln('======================');
 
+        readln;
+
+
+end.
+
+
+=================== test conversi suhu ===================
+program perhitungan_conversi_suhu;
+uses crt;
+
+var
+        c, f, k, r : real;
+
+begin
+        clrscr;
+
+        writeln('Program konversi Celsius ke Fahrenheit dan Kelvin');
+        writeln('=================================================');
+        write('Masukan nilai suhu dalan Celsius : '); readln(c);
+        f := (c * 1.8) + 32;
+        r := c * 4/5;
+        k := c + 273.15;
+        writeln('=================================================');
+        writeln('Berikut Hasilnya..');
+        writeln('Suhu dalam Fahrenheit : ', f:2:1);
+        writeln('Suhu dalam Kelvin : ', k:2:1);
+        writeln('Suhu dalam Reamur : ', r:2:1);
+        writeln('=================================================');
+
+        write('Press any key to exit');
         readln;
 
 
