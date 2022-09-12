@@ -18,3 +18,24 @@ begin
 
 end.
 ===================================================================================
+
+// perbandingan
+program if_else_kabisat;
+uses crt;
+
+var
+        a1, a2 : integer;
+
+begin
+        clrscr;
+        write('Silahkan masukan angka pertama : '); readln(a1);
+        write('Silahkan masukan angka kedua : '); readln(a2);
+        if (a1 > a2) then
+                writeln('Angka yang terbesar adalah ', a1)
+        else
+                writeln('Angka yang terbesar adalah ', a2);
+
+        readln;
+
+end.
+===================================================================================
