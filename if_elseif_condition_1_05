@@ -1,0 +1,48 @@
+program if_elseif_practice;
+uses crt;
+
+var
+        tugas, uts, uas, nilai_akhir : real;
+        huruf : char;
+        ket : string;
+begin
+        clrscr;
+        writeln('-=================================-');
+        writeln('|      Pengecekan Nilai Akhir     |');
+        writeln('-=================================-');
+        write('Silahkan masukan nilai Tugas : '); readln(tugas);
+        write('Silahkan masukan nilai UTS   : '); readln(uts);
+        write('Silahkan masukan nilai UAS   : '); readln(uas);
+        writeln('===================================');
+        nilai_akhir := ((20/100) * tugas)+((30/100) * uts)+((50/100) * uas);
+        if (nilai_akhir >= 70) then
+                ket := 'Selamat anda Lulus'
+        else
+                ket := 'Mohon maaf anda belum lulus';
+
+        {Perhitungan nilai ke huruf}
+        if (nilai_akhir > 90) then
+                huruf := 'A'
+        else if (nilai_akhir > 75 ) then
+                huruf := 'B'
+        else if (nilai_akhir > 60 ) then
+                huruf := 'C'
+        else if (nilai_akhir > 40 ) then
+                huruf := 'D'
+        else
+                huruf := 'E';
+
+
+        {Code menampilkan hasil}
+        writeln('Berikut hasilnya...');
+        writeln('===================================');
+        writeln('Nilai Tugas : ', tugas:0:0);
+        writeln('Nilai UTS   : ', uts:0:0);
+        writeln('Nilai UAS   : ', uas:0:0);
+        writeln('Nilai Akhir : ', nilai_akhir:0:0);
+        writeln('Nilai Huruf : ', huruf);
+        writeln('Keterangan  : ', ket);
+        writeln('===================================');
+
+        readln;
+end.
