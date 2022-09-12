@@ -1,0 +1,26 @@
+program belajar_read_readln;
+uses crt;
+
+var
+        nama, alamat, npm : string;
+        ipk : real;
+
+begin
+        clrscr;
+
+        writeln('Input data mahasiswa');
+        writeln('====================');
+        write('Nama : '); readln(nama);
+        write('Alamat : '); readln(alamat);
+        write('NPM : '); readln(npm);
+        write('IPK : '); readln(ipk);
+
+        writeln();
+        writeln('====== Hasil ======');
+        writeln('Nama : ', nama,' . Alamat : ', alamat);
+        writeln('NPM : ', npm);
+        writeln('IPK : ', ipk:1:2);
+
+        readln;
+
+end.
