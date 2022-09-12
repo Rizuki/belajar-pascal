@@ -20,7 +20,7 @@ end.
 ===================================================================================
 
 // perbandingan
-program if_else_kabisat;
+program if_else_angka_tertinggi;
 uses crt;
 
 var
