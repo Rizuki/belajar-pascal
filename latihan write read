@@ -24,3 +24,34 @@ begin
         readln;
 
 end.
+
+
+// test membuat perhitungan luas balok.
+program perhitungan_luas_balok;
+uses crt;
+
+var
+        p, l, t, hasil : real;
+
+begin
+        clrscr;
+        writeln('Test perhitungan luas Balok');
+        writeln('===========================');
+        writeln();
+        writeln('Silahkan masukan data...');
+        write('Panjang : '); readln(p);
+        write('Lebar : '); readln(l);
+        write('Tinggi : '); readln(t);
+        hasil := p*l*t;
+
+        writeln();
+        writeln('======================');
+        writeln('|| Berikut hasilnya ||');
+        writeln('======================');
+        writeln('Luas : ', hasil:2:2);
+        writeln('======================');
+
+        readln;
+
+
+end.
