@@ -1,0 +1,23 @@
+program for_to;
+uses crt;
+
+var
+        i, n, jumlah : integer;
+        rerata : real;
+
+begin
+        clrscr;
+        jumlah := 0;
+        write('Silahkan input angka batasan : '); readln(n);
+        for i := 1 to n do
+                begin
+                write(i,' ');
+                jumlah := jumlah + i;
+                end;
+        rerata := jumlah / n;
+
+        writeln();
+        writeln('Berikut total jumlah dari bilangan diatas : ',jumlah);
+        writeln('Berikut Rata-rata dari bilangan diatas : ', rerata:0:1);
+        readln;
+end.
