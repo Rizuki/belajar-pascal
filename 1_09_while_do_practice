@@ -11,7 +11,7 @@ begin
         write('Input batasan angka yang ingin ditampilkan : '); readln(akhir);
         
         // insialisasi nilai awal
-        awal := 0 + kelipatan;
+        awal := kelipatan;
 
         // kode perulangan while do
         writeln('Berikut Kelipatan ',kelipatan,' antara 0 - ',akhir,' : ');
