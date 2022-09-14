@@ -1,0 +1,33 @@
+program case_of;
+{sysutils untuk menggunakan fungsi IntToStr}
+uses crt, sysutils;
+
+var
+        bulan : integer;
+        keterangan : string;
+
+begin
+        clrscr;
+        write ('Mohon masukan angka 1-12 : '); readln(bulan);
+        {concat menggabungkan beberapa string}
+        keterangan := concat('Bulan ke ',IntToStr(bulan),' adalah : ');
+        case (bulan) of
+                1  : writeln(keterangan, 'Januari');
+                2  : writeln(keterangan, 'Februari');
+                3  : writeln(keterangan, 'Maret');
+                4  : writeln(keterangan, 'April');
+                5  : writeln(keterangan, 'Mei');
+                6  : writeln(keterangan, 'Juni');
+                7  : writeln(keterangan, 'Juli');
+                8  : writeln(keterangan, 'Agustus');
+                9  : writeln(keterangan, 'September');
+                10 : writeln(keterangan, 'Oktober');
+                11 : writeln(keterangan, 'November');
+                12 : writeln(keterangan, 'Desember');
+
+        else
+                writeln('Silahkan masukan data dengan benar');
+
+        end;
+        readln;
+end.
