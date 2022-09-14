@@ -23,3 +23,31 @@ begin
         readln;
 
 end.
+
+
+// this code works. but last number dont show up.
+program while_do;
+uses crt;
+
+var
+        awal, kelipatan, akhir : integer;
+
+begin
+        clrscr;
+
+        // insialisasi
+        write('Input angka kelipatan yang diinginkan : '); readln(kelipatan);
+        write('Input batasan angka yang ingin ditampilkan : '); readln(akhir);
+
+        //awal := kelipatan;
+
+        // kode perulangan while do
+        writeln('Berikut Kelipatan ',kelipatan,' antara 0 - ',akhir,' : ');
+        while (kelipatan <= akhir ) do
+                begin
+                write(kelipatan, ' ');
+                kelipatan := kelipatan+kelipatan;
+                end;
+        readln;
+
+end.
