@@ -1,0 +1,25 @@
+program repeat_until;
+uses crt;
+
+var
+        output, kelipatan, akhir : integer;
+
+begin
+        clrscr;
+        write('Silahkan masukan angka kelipatan yang diinginkan : '); readln(kelipatan);
+        write('Silahkan masukan batas akhir angka : '); readln(akhir);
+
+        // inisialisasi awal
+        output := kelipatan;
+
+        writeln('Berikut bilangan kelipatan ',kelipatan,' dari 0 - ',akhir);
+
+
+        // start kode repeat
+        repeat
+                write(output,' ');
+                output := output + kelipatan;
+        until output > akhir;
+
+        readln;
+end.
