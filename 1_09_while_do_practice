@@ -1,0 +1,25 @@
+program while_do;
+uses crt;
+
+var
+        awal, kelipatan, akhir : integer;
+
+begin
+        clrscr;
+
+        write('Input angka kelipatan yang diinginkan : '); readln(kelipatan);
+        write('Input batasan angka yang ingin ditampilkan : '); readln(akhir);
+        
+        // insialisasi nilai awal
+        awal := 0 + kelipatan;
+
+        // kode perulangan while do
+        writeln('Berikut Kelipatan ',kelipatan,' antara 0 - ',akhir,' : ');
+        while (awal <= akhir ) do
+                begin
+                write(awal, ' ');
+                awal := awal+kelipatan;
+                end;
+        readln;
+
+end.
