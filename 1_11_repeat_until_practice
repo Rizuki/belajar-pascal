@@ -1,0 +1,26 @@
+program repeat_until;
+uses crt;
+
+var
+        panjang, tinggi, lebar, hasil : real;
+        ulang : char;
+
+begin
+        repeat
+        clrscr;
+        writeln('+--------------------------------+');
+        writeln('| Program perhitungan luas balok |');
+        writeln('+--------------------------------+');
+        write('Masukan Panjang : '); readln(panjang);
+        write('Masukan Lebar   : '); readln(lebar);
+        write('Masukan Tinggi  : '); readln(tinggi);
+        hasil := panjang*lebar*tinggi;
+        writeln('+--------------------------------+');
+        writeln('Berikut luasnya : ',hasil:0:1);
+        writeln('+--------------------------------+');
+        write('Apakah ingin menghitung kembali (y/n)..? : '); readln(ulang);
+        until (ulang <> 'y') or (ulang <> 'Y');
+        write('Terima kasih...');
+        readln;
+
+end.
