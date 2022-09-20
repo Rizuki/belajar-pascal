@@ -1,0 +1,30 @@
+program segitiga_bintang;
+uses crt;
+
+var
+        i, j, k : integer;
+        baris : integer;
+        ulang : char;
+
+begin
+        repeat
+        clrscr;
+        write('Silahkan masukan jumlah baris : '); readln(baris);
+        
+        // membuat perulangan sebanyak jumlah baris yang diinput
+        for i := 1 to baris do
+        begin
+                // membuat perulangan dari perulangan diatasnya.
+                // jumlah perulangan j = urutan perulangan i
+                // ex : pada perulangan i ketiga membuat 3x perulangan j
+                for j := 1 to i do
+                begin
+                write('*');
+                end;
+        writeln;
+        end;
+        write('Apakah ingin mengulang (y/n) ..? '); readln(ulang);
+        until (ulang = 'n') or (ulang ='N');
+        write('Terima kasih...');
+        readln;
+end.
