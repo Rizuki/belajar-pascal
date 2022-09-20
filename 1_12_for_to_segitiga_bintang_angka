@@ -101,3 +101,40 @@ begin
         write('Terima kasih...');
         readln;
 end.
+
+
+
+/// Segitiga angka increment
+program segitiga_bintang;
+uses crt;
+
+var
+        i, j, k, l : integer;
+        baris : integer;
+        ulang : char;
+
+begin
+        repeat
+        clrscr;
+        l := 0;
+        write('Silahkan masukan jumlah baris : '); readln(baris);
+        for i := 1 to baris do
+        begin
+                for j :=1 to i*2-1 do
+                begin
+                        for k := 1 to (baris*2+1)-(i*2) do
+                                begin
+                                       write(' ');
+                                       if j > 1 then
+                                       break;
+                                end;
+                l := l + 1;
+                write(l);
+                end;
+        writeln;
+        end;
+        write('Apakah ingin mengulang (y/n) ..? '); readln(ulang);
+        until (ulang = 'n') or (ulang ='N');
+        write('Terima kasih...');
+        readln;
+end.
