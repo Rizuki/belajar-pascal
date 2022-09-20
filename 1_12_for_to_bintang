@@ -28,3 +28,40 @@ begin
         write('Terima kasih...');
         readln;
 end.
+
+//////////////// Bintang Pyramid
+program segitiga_bintang;
+uses crt;
+
+var
+        i, j, k : integer;
+        baris : integer;
+        ulang : char;
+
+begin
+        repeat
+        clrscr;
+        write('Silahkan masukan jumlah baris : '); readln(baris);
+        for i := 1 to baris do
+        begin
+                // membuat perulangan dari perulangan diatasnya "decrement".
+                // jumlah perulangan k = jumlah baris - urutan perulangan i
+                for k := 1 to (baris-i) do
+                begin
+                write(' ');
+                end;
+
+                // membuat perulangan dari perulangan diatasnya.
+                // jumlah perulangan j = urutan perulangan i
+                // ex : pada perulangan i ketiga membuat 3x perulangan j
+                for j :=1 to i*2-1 do
+                begin
+                write('*');
+                end;
+        writeln;
+        end;
+        write('Apakah ingin mengulang (y/n) ..? '); readln(ulang);
+        until (ulang = 'n') or (ulang ='N');
+        write('Terima kasih...');
+        readln;
+end.
