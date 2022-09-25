@@ -1,0 +1,30 @@
+program arrary;
+uses crt;
+var
+  Str: string;
+  Arr: array of shortstring;
+  i: Integer;
+  Len: Integer;
+begin
+  clrscr;
+  Str := 'Selamat Datang...';
+  Len := Length(Str); // menentukan jumlah character dari variable str;
+  SetLength(arr, Len); // set elemen array sesuai jumlah character
+
+  // Dynamic arrays are 0-based indexing, while
+  // strings are 1 based. We need to subtract 1
+  // from the array index.
+  for i := 1 to Len do
+    begin
+    Arr[i-1] := copy(str,i,1); // copy urutan character ke i sebanyak 1 char
+    end;
+
+  for i := 1 to Len do
+     begin
+        write(arr[i-1]);
+        delay(100);
+     end;
+
+    readln;
+
+end.
