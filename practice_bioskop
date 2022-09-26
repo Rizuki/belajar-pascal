@@ -1,14 +1,13 @@
 program ticketing;
-uses crt;
+uses crt, sysutils;
 
 var
 	yn, yn2 : char;
 	i, loopCounter: integer;
 	error, counter_pesanan : byte;
 	totalSeluruh : longint;
-	jumlah : array[0..9] of integer;
 	list, jam , hari, err_mes : array [0..9] of string;
-	inPesanan : array[0..9,0..3] of integer;
+	inPesanan : array[0..9,0..4] of integer;
 	outPesanan : array[0..9,0..3] of string;
 	harga, eachTotal : array[0..9] of longint;
 	
@@ -63,11 +62,13 @@ begin
 	// Error input nomor
 	err_mes[0] := 'Nomor tidak ditemukan, silahkan masukan nomor dengan benar';
 	
-	running_text('Selamat Datang');
+{==========================================================================}
+	textcolor(green);
+	gotoxy(53,13);running_text('Selamat Datang');
 	writeln();
-	running_text('Di Bioskop X1I');
+	gotoxy(53,14);running_text('Di Bioskop X1I');
 	writeln();
-	running_text('Apakah anda ingin melalukan pemesanan ticket...? (y/n) : '); readln(yn);
+	gotoxy(33,15);running_text('Apakah anda ingin melalukan pemesanan ticket...? (y/n) : '); readln(yn);
 	if upcase(yn) = 'Y' then
 	repeat
 	begin
@@ -183,9 +184,10 @@ begin
 					outPesanan[i,i+2] := err_mes[0];
 					error := 1;
 					end;
-			write('Silahkan masukan jumlah Ticket      : '); readln(jumlah[i]);
+			write('Silahkan masukan jumlah Ticket      : '); readln(inPesanan[i,i+3]);
 				// Perhitungan total harga setiap pemesanan
-					eachTotal[i] := harga[i] * jumlah[i];
+					outPesanan[i,i+3] := Inttostr(inPesanan[i,i+3]);
+					eachTotal[i] := harga[i] * inPesanan[i,i+3];
 			
 				if error = 1 then
 					begin
@@ -205,16 +207,18 @@ begin
 		end;
 		until	upcase(yn2) <> 'Y';
 			clrscr;
+				textcolor(green);
 				writeln('+===================================================+');
 				writeln('|            Berikut detail pesanan anda            |');
 				writeln('+===================================================+');
+				textcolor(red);
 				i := 0;
 				for loopCounter := 1 to counter_pesanan do
 					begin
 						writeln('Film    : ',outPesanan[i,i]);
 						writeln('Hari    : ',outPesanan[i,i+1]);
 						writeln('Jam     : ',outPesanan[i,i+2]);
-						writeln('Jumlah  : ',jumlah[i]);
+						writeln('Jumlah  : ',outPesanan[i,i+3]);
 						writeln('Total   : Rp. ',eachTotal[i]);
 						writeln('+===================================================+');
 						totalSeluruh := totalSeluruh + eachTotal[i];
@@ -231,9 +235,9 @@ begin
 		
 	clrscr;
 	textcolor(green);
-	running_text('Terima kasih');
+	gotoxy(53,13);running_text(' Terima kasih');
 	writeln();
-	running_text('Sampai berjumpa kembali');		
+	gotoxy(48,14);running_text('Sampai berjumpa kembali');		
 		
 		
 readln;
