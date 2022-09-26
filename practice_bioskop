@@ -1,0 +1,208 @@
+program ticketing;
+uses crt;
+
+var
+	yn : char;
+	i: integer;
+	e : byte;
+	total : longint;
+	harga : array[0..4] of longint;
+	jumlah : array[0..9] of integer;
+	list, jam , hari, err_mes : array [0..9] of string;
+	inPesanan : array[0..9,0..3] of integer;
+	outPesanan : array[0..9,0..3] of string;
+	
+// Intro Welcome Running Text		
+procedure running_text(kalimat : string);
+	var	len : integer;
+		text : array of shortstring;
+	begin
+		len := length(kalimat);
+		setlength(text, len);
+			// Input kalimat ke array "text" 1 huruf per index.
+			for i := 1 to len do
+				begin
+				text[i-1] := copy(kalimat, i, 1);
+				write(text[i-1]); // Output kalimat per huruf.
+					if i = len then
+						delay(1000)
+						else
+						delay(20);
+				end;
+			
+	end;
+
+
+begin
+	clrscr;
+
+	// list film
+	list[0] := 'Top Gun Maverick';
+	list[1] := 'Thor Love and Thunder';
+	list[2] := 'One Piece Film RED';
+	list[3] := 'Avatar';
+	
+	// Hari
+	hari[1] := 'Senin';
+	hari[2] := 'Selasa';
+	hari[3] := 'Rabu';
+	hari[4] := 'Kamis';
+	hari[5] := 'Jum`at';
+	hari[6] := 'Sabtu';
+	hari[7] := 'Minggu';
+	
+	// harga ticket
+	harga[0] := 35000;  // weekday
+	harga[1] := 50000;  // weekend
+	
+	// jam tayang
+	jam[0] := '13:00 - 15:00';
+	jam[1] := '16:00 - 18:00';
+	jam[2] := '19:00 - 21:00';
+
+	// Error input nomor
+	err_mes[0] := 'Nomor tidak ditemukan, silahkan masukan nomor dengan benar';
+	
+	running_text('Selamat Datang');
+	writeln();
+	running_text('Di Bioskop X1I');
+	writeln();
+	running_text('Apakah anda ingin melalukan pemesanan ticket...? (y/n) : '); readln(yn);
+	if upcase(yn) = 'Y' then
+	i := 0;
+	begin
+	repeat
+	clrscr;
+
+	
+	// Start
+		textcolor(green);
+		writeln('+===================================================+');
+		writeln('|       Berikut list film yang sedang tayang        +');
+		writeln('+===================================================+');
+		writeln('1. ',list[0]);
+		writeln('2. ',list[1]);
+		writeln('3. ',list[2]);
+		writeln('4. ',list[3]);
+		writeln('+===================================================+');
+		writeln('|             Berikut list harga ticket             +');
+		writeln('+===================================================+');
+		writeln('Senin - Jum`at  : Rp. 35.000');
+		writeln('Sabtu & Minggu  : Rp. 50.000');
+		writeln('+===================================================+');
+		writeln('|                 Berikut list Hari                 +');
+		writeln('+===================================================+');
+		writeln('1. Senin           4. Kamis          7. Minggu');
+		writeln('2. Selasa          5. Jum`at'); 
+		writeln('3. Rabu            6. Sabtu');
+		writeln('+===================================================+');
+		writeln('|              Berikut list Jam Tayang              +');
+		writeln('+===================================================+');
+		writeln('1. ', jam[0]);
+		writeln('2. ', jam[1]);
+		writeln('3. ', jam[2]);
+		writeln('+===================================================+');
+		
+		begin
+		e := 0;
+		textcolor(red);
+		write('Silahkan masukan kode Film (1-4)    : '); readln(inPesanan[i,i]);
+		// Penentuan Judul Film
+			if inPesanan[i,i] = 1 then
+				outPesanan[i,i] := list[0]
+			else if inPesanan[i,i] = 2 then
+				outPesanan[i,i] := list[1]
+			else if inPesanan[i,i] = 3 then
+				outPesanan[i,i] := list[2]
+			else if inPesanan[i,i] = 4 then
+				outPesanan[i,i] := list[3]
+			else
+				begin
+				outPesanan[i,i] := err_mes[0];
+				e := 1;
+				end;
+				
+		write('Silahkan masukan kode Hari (1-7)    : '); readln(inPesanan[i,i+1]);
+			// Penentuan Hari
+			if inPesanan[i,i+1] = 1 then
+				outPesanan[i,i+1] := hari[1]
+			else if inPesanan[i,i+1] = 2 then
+				outPesanan[i,i+1] := hari[2]
+			else if inPesanan[i,i+1] = 3 then
+				outPesanan[i,i+1] := hari[3]
+			else if inPesanan[i,i+1] = 4 then
+				outPesanan[i,i+1] := hari[4]
+			else if inPesanan[i,i+1] = 5 then
+				outPesanan[i,i+1] := hari[5]
+			else if inPesanan[i,i+1] = 6 then
+				outPesanan[i,i+1] := hari[6]
+			else if inPesanan[i,i+1] = 7 then
+				outPesanan[i,i+1] := hari[7]
+			else
+				begin
+				outPesanan[i,i+1] := err_mes[0];
+				e := 1;
+				end;
+				
+		write('Silahkan masukan kode Jam  (1-3)    : '); readln(inPesanan[i,i+2]);
+			// Penentuan jam
+			if inPesanan[i,i+2] = 1 then
+				outPesanan[i,i+2] := jam[0]
+			else if inPesanan[i,i+2] = 2 then
+				outPesanan[i,i+2] := jam[1]
+			else if inPesanan[i,i+2] = 3 then
+				outPesanan[i,i+2] := jam[2]
+			else
+				begin
+				outPesanan[i,i+2] := err_mes[0];
+				e := 1;
+				end;
+		write('Silahkan masukan jumlah Ticket      : '); readln(jumlah[i]);
+			if e = 1 then
+				begin
+				writeln('+=======================================================+');
+				writeln('| Kode tidak ditemukan. Mohon masukan kode dengan benar |');
+				writeln('+=======================================================+');
+				delay(3000);
+				end;
+		end;
+		until e = 0;
+		writeln('+=======================================================+');
+
+			
+				
+			
+				
+			
+				
+				
+		writeln('Film    : ',outPesanan[i,i]);
+		writeln('Hari    : ',outPesanan[i,i+1]);
+		writeln('Jam     : ',outPesanan[i,i+2]);
+		writeln('Jumlah  : ',jumlah[i]);
+			
+		
+	end;
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	{else
+	begin
+		running_text('Terima kasih sudah berkunjung.');
+	end;}
+	
+	
+	
+	
+	
+	readln;
+	
+	
+end.
+		
