@@ -206,6 +206,8 @@ begin
 			
 		end;
 		until	upcase(yn2) <> 'Y';
+				writeln();
+				running_text('Mohon ditunggu...'); delay(2000);
 			clrscr;
 				textcolor(green);
 				writeln('+===================================================+');
