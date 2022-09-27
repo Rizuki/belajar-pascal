@@ -3,11 +3,10 @@ uses crt, sysutils;
 
 var
 	yn, yn2 : char;
-	i, loopCounter: integer;
-	error, counter_pesanan : byte;
+	error, counter_pesanan, i, loopCounter : byte;
 	totalSeluruh : longint;
 	list, jam , hari, err_mes : array [0..9] of string;
-	inPesanan : array[0..9,0..4] of integer;
+	inPesanan : array[0..9,0..4] of byte;
 	outPesanan : array[0..9,0..3] of string;
 	harga, eachTotal : array[0..9] of longint;
 	
@@ -60,7 +59,7 @@ begin
 	jam[2] := '19:00 - 21:00';
 
 	// Error input nomor
-	err_mes[0] := 'Nomor tidak ditemukan, silahkan masukan nomor dengan benar';
+	err_mes[0] := 'Kode tidak ditemukan, silahkan masukan kode dengan benar';
 	
 {==========================================================================}
 	textcolor(green);
@@ -113,7 +112,11 @@ begin
 			error := 0;
 			textcolor(red);
 			write('Silahkan masukan kode Film (1-4)    : '); readln(inPesanan[i,i]);
-			// Penentuan Judul Film
+			write('Silahkan masukan kode Hari (1-7)    : '); readln(inPesanan[i,i+1]);
+			write('Silahkan masukan kode Jam  (1-3)    : '); readln(inPesanan[i,i+2]);
+			write('Silahkan masukan jumlah Ticket      : '); readln(inPesanan[i,i+3]);
+			
+				// Penentuan Judul Film
 				if inPesanan[i,i] = 1 then
 					outPesanan[i,i] := list[0]
 				else if inPesanan[i,i] = 2 then
@@ -128,7 +131,6 @@ begin
 					error := 1;
 					end;
 				
-			write('Silahkan masukan kode Hari (1-7)    : '); readln(inPesanan[i,i+1]);
 				// Penentuan Hari
 				if inPesanan[i,i+1] = 1 then
 					begin	
@@ -170,8 +172,7 @@ begin
 					outPesanan[i,i+1] := err_mes[0];
 					error := 1;
 					end;
-				
-			write('Silahkan masukan kode Jam  (1-3)    : '); readln(inPesanan[i,i+2]);
+							
 				// Penentuan jam
 				if inPesanan[i,i+2] = 1 then
 					outPesanan[i,i+2] := jam[0]
@@ -184,7 +185,7 @@ begin
 					outPesanan[i,i+2] := err_mes[0];
 					error := 1;
 					end;
-			write('Silahkan masukan jumlah Ticket      : '); readln(inPesanan[i,i+3]);
+			
 				// Perhitungan total harga setiap pemesanan
 					outPesanan[i,i+3] := Inttostr(inPesanan[i,i+3]);
 					eachTotal[i] := harga[i] * inPesanan[i,i+3];
@@ -201,14 +202,14 @@ begin
 		counter_pesanan := counter_pesanan+1;
 		writeln('+===================================================+');
 		write('Pesanan anda telah kami simpan, apakah ingin menambah pesanan..? (y/n) : '); readln(yn2);
-		if (upcase(yn2) = 'Y') then
-			i := i+1;
+			if (upcase(yn2) = 'Y') then
+				i := i+1;
 			
 		end;
 		until	upcase(yn2) <> 'Y';
 				writeln();
 				running_text('Mohon ditunggu...'); delay(2000);
-			clrscr;
+				clrscr;
 				textcolor(green);
 				writeln('+===================================================+');
 				writeln('|            Berikut detail pesanan anda            |');
